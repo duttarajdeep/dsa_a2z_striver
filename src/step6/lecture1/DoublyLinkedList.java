@@ -65,6 +65,18 @@ public class DoublyLinkedList<T> {
 		return this.size;
 	}
 
+	public void reverse() {
+		Node<T> current = head;
+		Node<T> prev = null;
+		while (current != null) {
+			prev = current.prev;
+			current.prev = current.next;
+			current.next = prev;
+			current = current.prev;
+		}
+		head = prev.prev;
+	}
+
 	public void display() {
 		Node<T> current = head;
 		while (current != null) {

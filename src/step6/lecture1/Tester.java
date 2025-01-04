@@ -40,6 +40,8 @@ public class Tester {
 		dll.display();
 		dll.insert(2, 2);
 		dll.display();
+		dll.reverse();
+		dll.display();
 	}
 
 }
