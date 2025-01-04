@@ -145,6 +145,21 @@ public class LinkedList<T> {
 		return;
 	}
 
+	public boolean search(T data) {
+		if (head == null)
+			throw new RuntimeException("List is empty");
+
+		Node<T> current = head;
+
+		while (current.next != null) {
+			if (current.data == data)
+				return true;
+			current = current.next;
+		}
+		return false;
+
+	}
+
 	public void display() {
 		Node<T> current = head;
 		while (current != null) {

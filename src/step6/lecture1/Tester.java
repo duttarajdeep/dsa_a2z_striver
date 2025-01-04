@@ -10,23 +10,24 @@ public class Tester {
 		ll.add(3);
 		ll.add(4);
 		ll.add(5);
-		System.out.println("Size of the list is: " + ll.size());
-		ll.display();
-		ll.delete(1);
-		ll.display();
-		System.out.println("Size of the list is: " + ll.size());
-		ll.insertFirst(1);
-		ll.display();
-		System.out.println("Size of the list is: " + ll.size());
-		ll.insertLast(6);
-		ll.display();
-		System.out.println("Size of the list is: " + ll.size());
-		ll.delete(4);
-		ll.display();
-		System.out.println("Size of the list is: " + ll.size());
-		ll.insert(4, 4);
-		ll.display();
-		System.out.println("Size of the list is: " + ll.size());
+//		System.out.println("Size of the list is: " + ll.size());
+//		ll.display();
+//		ll.delete(1);
+//		ll.display();
+//		System.out.println("Size of the list is: " + ll.size());
+//		ll.insertFirst(1);
+//		ll.display();
+//		System.out.println("Size of the list is: " + ll.size());
+//		ll.insertLast(6);
+//		ll.display();
+//		System.out.println("Size of the list is: " + ll.size());
+//		ll.delete(4);
+//		ll.display();
+//		System.out.println("Size of the list is: " + ll.size());
+//		ll.insert(4, 4);
+//		ll.display();
+//		System.out.println("Size of the list is: " + ll.size());
+		System.out.println(ll.search(13));
 	}
 
 }
