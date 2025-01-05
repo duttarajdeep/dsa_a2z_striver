@@ -5,6 +5,18 @@ public class DoublyLinkedList<T> {
 	private Node<T> head;
 	private int size = 0;
 
+	public Node<T> head() {
+		return this.head;
+	}
+
+	public DoublyLinkedList() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public DoublyLinkedList(Node<T> head) {
+		this.head = head;
+	}
+
 	public void add(T data) {
 		if (head == null) {
 			Node<T> newNode = new Node<T>(data);
@@ -75,6 +87,17 @@ public class DoublyLinkedList<T> {
 			current = current.prev;
 		}
 		head = prev.prev;
+	}
+
+	public Node<T> recursiveReverse(Node<T> head) {
+		if (head == null || head.next == null)
+			return head;
+		Node<T> newHead = recursiveReverse(head.next);
+		Node<T> first = head.next;
+		first.next = head;
+		head.next = null;
+		head.prev = first;
+		return newHead;
 	}
 
 	public void display() {

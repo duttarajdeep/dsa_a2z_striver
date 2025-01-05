@@ -42,6 +42,8 @@ public class Tester {
 		dll.display();
 		dll.reverse();
 		dll.display();
+		DoublyLinkedList<Integer> dll2 = new DoublyLinkedList<Integer>(dll.recursiveReverse(dll.head()));
+		dll2.display();
 	}
 
 }
