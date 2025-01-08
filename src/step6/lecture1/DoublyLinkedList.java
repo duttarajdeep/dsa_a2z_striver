@@ -123,6 +123,109 @@ public class DoublyLinkedList<T> {
 		System.out.println();
 	}
 
+	public boolean isCyclic() {
+		Node<T> slow = head;
+		Node<T> fast = head;
+		while (fast != null && fast.next != null) {
+			slow = slow.next;
+			fast = fast.next;
+			if (slow == fast)
+				return true;
+		}
+		return false;
+	}
+
+	public Node<T> getLoopNode() {
+		Node<T> slow = head;
+		Node<T> fast = head;
+		while (fast != null && fast.next != null) {
+			slow = slow.next;
+			fast = fast.next;
+			if (slow == fast) {
+				slow = head;
+				while (slow != fast) {
+					slow = slow.next;
+					fast = fast.next;
+				}
+				return slow;
+			}
+		}
+		return null;
+	}
+
+	public int getLoopLength() {
+		Node<T> slow = head;
+		Node<T> fast = head;
+		while (fast != null && fast.next != null) {
+			slow = slow.next;
+			fast = fast.next.next;
+			if (slow == fast) {
+				slow = head;
+				while (slow != fast) {
+					slow = slow.next;
+					fast = fast.next;
+				}
+				int length = 0;
+				while (slow != fast) {
+					slow = slow.next;
+					length++;
+				}
+				return length;
+			}
+		}
+		return 0;
+	}
+
+	public Node sortList(Node head) {
+		if (head == null && head.next == null)
+			return head;
+
+		Node middle = findMid(head);
+
+		Node right = middle.next;
+		middle.next = null;
+		Node left = head;
+
+		left = sortList(left);
+		right = sortList(right);
+		return merge(left, right);
+	}
+
+	public Node findMid(Node head) {
+		if (head == null || head.next == null)
+			return head;
+		Node slow = head;
+		Node fast = head.next;
+		while (fast != null && fast.next != null) {
+			slow = slow.next;
+			fast = fast.next.next;
+		}
+		return slow;
+	}
+
+	public Node merge(Node list1, Node list2) {
+		Node dummyNode = new Node(-1);
+		Node temp = dummyNode;
+
+		while (list1 != null && list2 != null) {
+			if (list1.data <= list2.data) {
+				temp.next = list1;
+				list1 = list1.next;
+			} else {
+				temp.next = list2;
+				list2 = list2.next;
+			}
+			temp = temp.next;
+		}
+
+		if (list1 != null)
+			temp.next = list1;
+		else
+			temp.next = list2;
+
+		return dummyNode.next;
+	}
+
 	private class Node<T> {
 		T data;
 		Node<T> prev;
