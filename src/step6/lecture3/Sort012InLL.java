@@ -2,22 +2,12 @@ package step6.lecture3;
 
 public class Sort012InLL {
 
-	private class Node {
-		int data;
-		Node next;
-
-		Node(int data) {
-			this.data = data;
-			next = null;
-		}
-	}
-
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 	}
 
-	static Node segregate(Node head) {
+	public Node segregate(Node head) {
 		// add your code here
 		int c0 = 0, c1 = 0, c2 = 0;
 
@@ -53,7 +43,7 @@ public class Sort012InLL {
 
 	}
 
-	static Node segregate2(Node head) {
+	public Node segregate2(Node head) {
 
 		if (head == null || head.next == null)
 			return head;
@@ -88,6 +78,16 @@ public class Sort012InLL {
 
 		Node newHead = h0.next;
 		return newHead;
+	}
+
+	public class Node {
+		int data;
+		Node next;
+
+		Node(int data) {
+			this.data = data;
+			next = null;
+		}
 	}
 
 }
