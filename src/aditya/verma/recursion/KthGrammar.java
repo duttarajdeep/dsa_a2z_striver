@@ -1,4 +1,4 @@
-package step7.lecture1;
+package aditya.verma.recursion;
 
 public class KthGrammar {
 
