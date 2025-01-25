@@ -10,25 +10,30 @@ public class SubseqWithSumK {
 		int[] ip = { 1, 2, 1 };
 		int k = 2;
 
-		solve(0, ip, new ArrayList<Integer>(), 0, k);
+		System.out.println("No. of sub-sequences: 789p[" + "" + solve(0, ip, new ArrayList<Integer>(), 0, k));
 
 	}
 
-	static void solve(int i, int[] ip, List<Integer> op, int sum, int k) {
+	static int solve(int i, int[] ip, List<Integer> op, int sum, int k) {
+		int count = 0;
 		if (i == ip.length) {
-			if (sum == k)
+			if (sum == k) {
 				System.out.println(op.toString());
-			return;
+				count++;
+			}
+			return count;
 		}
 
 		// take current element
 		List<Integer> op1 = new ArrayList<>(op);
 		op1.add(ip[i]);
-		solve(i + 1, ip, op1, sum + ip[i], k);
+		count += solve(i + 1, ip, op1, sum + ip[i], k);
 
 		// dont take current element
 		List<Integer> op2 = new ArrayList<>(op);
-		solve(i + 1, ip, op2, sum, k);
+		count += solve(i + 1, ip, op2, sum, k);
+
+		return count;
 
 	}
 
