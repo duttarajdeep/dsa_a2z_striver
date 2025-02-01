@@ -21,16 +21,12 @@ public class SubsetSumsI {
 	}
 
 	static void solve(int i, int sum, int[] ip, List<Integer> op) {
-
 		if (i == ip.length) {
 			op.add(sum);
 			return;
 		}
-
 		solve(i + 1, sum + ip[i], ip, op);
-
 		solve(i + 1, sum, ip, op);
-
 	}
 
 }
